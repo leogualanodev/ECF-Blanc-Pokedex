@@ -37,12 +37,19 @@ for ( let i=1; i < 152 ; i++){
     let modalContainer= document.querySelector(`.modal-container`);
     let modalTriggers = document.querySelectorAll(`.modal-trigger`);
     modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal)); 
+
+    let modalClose = document.querySelectorAll(`.modal-close`);
+    modalClose.forEach(close => close.addEventListener("click",closeModal));
+
+    function closeModal (){
+        modalContainer.classList.remove("active")
+    }
        
 
     // cette fonction va permettre d'ajouter et d'enlever au click la classe active et donc faire apparaitre ou non ma modale 
     // elle va également permettre de remplir ma modale avec une 2nd fonction qui remplie ma modale en fonction de la ou je click (this = > cet élement la ))
     function toggleModal(){
-        modalContainer.classList.toggle("active");
+        modalContainer.classList.add("active");
         returnInfo(this);
     }
 
@@ -87,15 +94,118 @@ function returnInfo (a){
                     let type2= document.querySelector(`.type2`);
                     type2.innerHTML = `${response.types[1].type.name}`
                 }
+                // je définis ici les couleurs de type du pokemon dans ma modale 
+                let colorFire1 = document.querySelector(`.type1`);
+                let colorFire2 = document.querySelector(`.type2`);
 
-
-                if ( `${response.types[0].type.name}` == `${tab[9]}` || `${response.types[1].type.name}` === `${tab[9]}` ){
-                    let colorFire = document.querySelector(`.type1`);
-                    colorFire.style.backgroundColor = "red";
+                if ( `${response.types[0].type.name}` === `${tab[9]}`){
+                        colorFire1.style.backgroundColor = "#f08030";
                 }
+                    
+                
+
+                else if ( `${response.types[0].type.name}` === `${tab[1]}` ){
+                   
+                        colorFire1.style.backgroundColor = "#c03028"
+                   
+                } 
+                else if (`${response.types[0].type.name}` === `${tab[2]}`){
+                    
+                        colorFire1.style.backgroundColor = "#a890f0"
+                   
+                } 
+                else if (`${response.types[0].type.name}` === `${tab[3]}`){
+                    
+                        colorFire1.style.backgroundColor = "#a040a0"
+                    
+                }
+                else if (`${response.types[0].type.name}` === `${tab[4]}` ){
+                    
+                        colorFire1.style.backgroundColor = "#e0c068"
+                    
+                }
+                else if (`${response.types[0].type.name}` === `${tab[5]}` ){
+                    
+                        colorFire1.style.backgroundColor = "#b8a038"
+                    
+                }
+                else if (`${response.types[0].type.name}` === `${tab[6]}` ){
+                    
+                        colorFire1.style.backgroundColor = "#a8b820"
+                }
+                  
+                
+                else if (`${response.types[0].type.name}` === `${tab[7]}` ){
+                    
+                        colorFire1.style.backgroundColor = "#705898"
+                     
+                }
+                else if (`${response.types[0].type.name}` === `${tab[8]}` ){
+                   
+                        colorFire1.style.backgroundColor = "#b8b8d0"
+                    
+                }
+                else if (`${response.types[0].type.name}` === `${tab[10]}`){
+                   
+                        colorFire1.style.backgroundColor = "#6890f0"
+                   
+                }
+                else if (`${response.types[0].type.name}` === `${tab[11]}`){
+                    
+                        colorFire1.style.backgroundColor = "#78c850"
+                     
+                }
+                else if (`${response.types[0].type.name}` === `${tab[12]}`){
+                    
+                        colorFire1.style.backgroundColor = "#f8d030"
+                   
+                }
+                else if (`${response.types[0].type.name}` === `${tab[13]}` ){
+                    
+                        colorFire1.style.backgroundColor = "#f85888"
+                   
+                }
+                else if (`${response.types[0].type.name}` === `${tab[14]}` ){
+                    
+                        colorFire1.style.backgroundColor = "#98d8d8"
+                   
+                }
+                else if (`${response.types[0].type.name}` === `${tab[15]}`){
+                   
+                        colorFire1.style.backgroundColor = "#7038f8"
+                     
+                }
+                else if (`${response.types[0].type.name}` === `${tab[16]}` ){
+                    
+                        colorFire1.style.backgroundColor = "#705848"
+                   
+                }
+                else if (`${response.types[0].type.name}` === `${tab[17]}` ){
+                    
+                        colorFire1.style.backgroundColor = "#ee99ac"
+                   
+                }
+                else if (`${response.types[0].type.name}` === `${tab[19]}` ){
+                   
+                        colorFire1.style.backgroundColor = "#564c4e"
+                   
+                }
+                else if (`${response.types[0].type.name}` === `${tab[18]}`){
+                    
+                        colorFire1.style.backgroundColor = "#68a090"  
+                }
+                else if (`${response.types[0].type.name}` === `${tab[0]}` ){
+                    
+                        colorFire1.style.backgroundColor = "#a8a878"  
+                }
+                else {
+                    colorFire1.style.backgroundColor = "black"
+                    
+                }
+                
 
 
-                let diff = 10/12  // je definie une échelle pour le remplissage des mes barres de stats dans la modale (l'attaque de certain peut être supperieur à 100)
+                let diff = 10/15  // je definie une échelle pour le remplissage des mes barres de stats dans la modale (l'attaque de certain peut être supperieur à 100)
                     // je remplie ici la barre de stats de mon pokémon 
                 let hp = document.querySelector(`#stats-number p`);
                 let hpBar = document.querySelector(`.hp`);
