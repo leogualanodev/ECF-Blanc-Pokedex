@@ -90,14 +90,20 @@ function returnInfo (a){
                 // on remplie le ou les types de notre pokémon et on va le stylisé en fonction de celui-ci (background)
                 let type1= document.querySelector(`.type1`);
                 type1.innerHTML = `${response.types[0].type.name}`
-                if ( response.types[1].type.name !== undefined){   // je fais un if au cas où la 2nd abilité n'existe pas: le script continue !:) 
+                console.log(response.types[1]);
+                if ( response.types[1] !== undefined){   // je fais un if au cas où la 2nd abilité n'existe pas: le script continue !:) 
                     let type2= document.querySelector(`.type2`);
                     type2.innerHTML = `${response.types[1].type.name}`
+                }
+                else
+                {
+                        let type2= document.querySelector(`.type2`);
+                        type2.innerHTML  = ''
                 }
                 // je définis ici les couleurs de type du pokemon dans ma modale 
                 let colorFire1 = document.querySelector(`.type1`);
                 let colorFire2 = document.querySelector(`.type2`);
-
+                
                 if ( `${response.types[0].type.name}` === `${tab[9]}`){
                         colorFire1.style.backgroundColor = "#f08030";
                 }
