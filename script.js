@@ -42,7 +42,14 @@ for ( let i=1; i < 152 ; i++){
     modalClose.forEach(close => close.addEventListener("click",closeModal));
 
     function closeModal (){
-        modalContainer.classList.remove("active")
+        modalContainer.classList.remove("active");
+        let hpBar = document.querySelector(`.hp`); hpBar.style.width = 0 ;
+        let atkBar = document.querySelector(`.atk`) ; atkBar.style.width = 0 ; 
+        let defBar = document.querySelector(`.def`) ; defBar.style.width = 0 ;
+        let satkBar = document.querySelector(`.satk`) ; satkBar.style.width = 0 ;
+        let sdefBar = document.querySelector(`.sdef`) ; sdefBar.style.width = 0 ;
+        let spdBar = document.querySelector(`.spd`) ; spdBar.style.width = 0 ; 
+
     }
        
 
@@ -73,10 +80,10 @@ function returnInfo (a){
                 pokeName.innerHTML = `${response.name}`;
 
                 let weight = document.querySelector(`#part1 p`);
-                weight.innerHTML = `${response.weight} kg`;
+                weight.innerHTML = `${(response.weight)/10} kg`;
 
                 let height = document.querySelector(`#part2 p`);
-                height.innerHTML = `${response.height} m`;
+                height.innerHTML = `${(response.height)/10} m`;
 
 
                 let numberPokemon = document.querySelector(`.number-modal`);
@@ -93,7 +100,112 @@ function returnInfo (a){
                 console.log(response.types[1]);
                 if ( response.types[1] !== undefined){   // je fais un if au cas où la 2nd abilité n'existe pas: le script continue !:) 
                     let type2= document.querySelector(`.type2`);
+                    let colorFire2 = document.querySelector(`.type2`);
                     type2.innerHTML = `${response.types[1].type.name}`
+                    if ( `${response.types[1].type.name}` === `${tab[9]}`){
+                        colorFire2.style.backgroundColor = "#f08030";
+                        }
+                    
+                
+
+                        else if ( `${response.types[1].type.name}` === `${tab[1]}` ){
+                   
+                        colorFire2.style.backgroundColor = "#c03028"
+                   
+                        } 
+                        else if (`${response.types[1].type.name}` === `${tab[2]}`){
+                    
+                        colorFire2.style.backgroundColor = "#a890f0"
+                   
+                        } 
+                        else if (`${response.types[1].type.name}` === `${tab[3]}`){
+                    
+                        colorFire2.style.backgroundColor = "#a040a0"
+                    
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[4]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#e0c068"
+                    
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[5]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#b8a038"
+                    
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[6]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#a8b820"
+                        }
+                  
+                
+                        else if (`${response.types[1].type.name}` === `${tab[7]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#705898"
+                     
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[8]}` ){
+                   
+                        colorFire2.style.backgroundColor = "#b8b8d0"
+                    
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[10]}`){
+                   
+                        colorFire2.style.backgroundColor = "#6890f0"
+                   
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[11]}`){
+                    
+                        colorFire2.style.backgroundColor = "#78c850"
+                     
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[12]}`){
+                    
+                        colorFire2.style.backgroundColor = "#f8d030"
+                   
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[13]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#f85888"
+                   
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[14]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#98d8d8"
+                   
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[15]}`){
+                   
+                        colorFire2.style.backgroundColor = "#7038f8"
+                     
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[16]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#705848"
+                   
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[17]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#ee99ac"
+                   
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[19]}` ){
+                   
+                        colorFire2.style.backgroundColor = "#564c4e"
+                   
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[18]}`){
+                    
+                        colorFire2.style.backgroundColor = "#68a090"  
+                        }
+                        else if (`${response.types[1].type.name}` === `${tab[0]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#a8a878"  
+                        }
+                        else {
+                        colorFire2.style.backgroundColor = "black"
+                    
+                }
                 }
                 else
                 {
@@ -102,7 +214,7 @@ function returnInfo (a){
                 }
                 // je définis ici les couleurs de type du pokemon dans ma modale 
                 let colorFire1 = document.querySelector(`.type1`);
-                let colorFire2 = document.querySelector(`.type2`);
+                
                 
                 if ( `${response.types[0].type.name}` === `${tab[9]}`){
                         colorFire1.style.backgroundColor = "#f08030";
@@ -211,154 +323,66 @@ function returnInfo (a){
 
                 // deuxième couleur pour le type 2
 
-                if ( `${response.types[1].type.name}` === `${tab[9]}`){
-                        colorFire2.style.backgroundColor = "#f08030";
-                }
-                    
                 
-
-                else if ( `${response.types[1].type.name}` === `${tab[1]}` ){
-                   
-                        colorFire2.style.backgroundColor = "#c03028"
-                   
-                } 
-                else if (`${response.types[1].type.name}` === `${tab[2]}`){
-                    
-                        colorFire2.style.backgroundColor = "#a890f0"
-                   
-                } 
-                else if (`${response.types[1].type.name}` === `${tab[3]}`){
-                    
-                        colorFire2.style.backgroundColor = "#a040a0"
-                    
-                }
-                else if (`${response.types[1].type.name}` === `${tab[4]}` ){
-                    
-                        colorFire2.style.backgroundColor = "#e0c068"
-                    
-                }
-                else if (`${response.types[1].type.name}` === `${tab[5]}` ){
-                    
-                        colorFire2.style.backgroundColor = "#b8a038"
-                    
-                }
-                else if (`${response.types[1].type.name}` === `${tab[6]}` ){
-                    
-                        colorFire2.style.backgroundColor = "#a8b820"
-                }
-                  
-                
-                else if (`${response.types[1].type.name}` === `${tab[7]}` ){
-                    
-                        colorFire2.style.backgroundColor = "#705898"
-                     
-                }
-                else if (`${response.types[1].type.name}` === `${tab[8]}` ){
-                   
-                        colorFire2.style.backgroundColor = "#b8b8d0"
-                    
-                }
-                else if (`${response.types[1].type.name}` === `${tab[10]}`){
-                   
-                        colorFire2.style.backgroundColor = "#6890f0"
-                   
-                }
-                else if (`${response.types[1].type.name}` === `${tab[11]}`){
-                    
-                        colorFire2.style.backgroundColor = "#78c850"
-                     
-                }
-                else if (`${response.types[1].type.name}` === `${tab[12]}`){
-                    
-                        colorFire2.style.backgroundColor = "#f8d030"
-                   
-                }
-                else if (`${response.types[1].type.name}` === `${tab[13]}` ){
-                    
-                        colorFire2.style.backgroundColor = "#f85888"
-                   
-                }
-                else if (`${response.types[1].type.name}` === `${tab[14]}` ){
-                    
-                        colorFire2.style.backgroundColor = "#98d8d8"
-                   
-                }
-                else if (`${response.types[1].type.name}` === `${tab[15]}`){
-                   
-                        colorFire2.style.backgroundColor = "#7038f8"
-                     
-                }
-                else if (`${response.types[1].type.name}` === `${tab[16]}` ){
-                    
-                        colorFire2.style.backgroundColor = "#705848"
-                   
-                }
-                else if (`${response.types[1].type.name}` === `${tab[17]}` ){
-                    
-                        colorFire2.style.backgroundColor = "#ee99ac"
-                   
-                }
-                else if (`${response.types[1].type.name}` === `${tab[19]}` ){
-                   
-                        colorFire2.style.backgroundColor = "#564c4e"
-                   
-                }
-                else if (`${response.types[1].type.name}` === `${tab[18]}`){
-                    
-                        colorFire2.style.backgroundColor = "#68a090"  
-                }
-                else if (`${response.types[1].type.name}` === `${tab[0]}` ){
-                    
-                        colorFire2.style.backgroundColor = "#a8a878"  
-                }
-                else {
-                    colorFire2.style.backgroundColor = "black"
-                    
-                }
                 
 
 
-                let diff = 10/15  // je definie une échelle pour le remplissage des mes barres de stats dans la modale (l'attaque de certain peut être supperieur à 100)
-                    // je remplie ici la barre de stats de mon pokémon 
+                let diff = 10/20  // je definie une échelle pour le remplissage des mes barres de stats dans la modale (l'attaque de certain peut être supperieur à 100)
+                    
+                
+                
+                // je remplie ici la barre de stats de mon pokémon 
                 let hp = document.querySelector(`#stats-number p`);
-                let hpBar = document.querySelector(`.hp`);
                 hp.innerHTML = `${response.stats[0].base_stat}`;
-                hpBar.style.width = `${(response.stats[0].base_stat)*(diff)}%`;
-
                 let atk = document.querySelector(`#stats-number p:nth-child(2)`);
-                let atkBar = document.querySelector(`.atk`);
                 atk.innerHTML = `${response.stats[1].base_stat}`;
-                atkBar.style.width = `${(response.stats[1].base_stat)*(diff)}%`;
-
                 let def = document.querySelector(`#stats-number p:nth-child(3)`);
-                let defBar = document.querySelector(`.def`);
                 def.innerHTML = `${response.stats[2].base_stat}`;
-                defBar.style.width = `${(response.stats[2].base_stat)*(diff)}%`;
-
                 let satk = document.querySelector(`#stats-number p:nth-child(4)`);
-                let satkBar = document.querySelector(`.satk`);
                 satk.innerHTML = `${response.stats[3].base_stat}`;
-                satkBar.style.width = `${(response.stats[3].base_stat)*(diff)}%`;
-
                 let sdef = document.querySelector(`#stats-number p:nth-child(5)`);
-                let sdefBar = document.querySelector(`.sdef`);
                 sdef.innerHTML = `${response.stats[4].base_stat}`;
-                sdefBar.style.width = `${(response.stats[4].base_stat)*(diff)}%`;
-
                 let spd = document.querySelector(`#stats-number p:nth-child(6)`);
-                let spdBar = document.querySelector(`.spd`);
                 spd.innerHTML = `${response.stats[5].base_stat}`;
-                spdBar.style.width = `${(response.stats[5].base_stat)*(diff)}%`;
-                
 
+
+                setTimeout(()=> {
+                        
+                        
+
+
+
+                        let hpBar = document.querySelector(`.hp`);
+                        hpBar.style.cssText = `width:${(response.stats[0].base_stat)*(diff)}% ; background-color: #666666 ; transition: 1s; `; 
+                        
+                        let atkBar = document.querySelector(`.atk`);
+                        atkBar.style.cssText = `width:${(response.stats[1].base_stat)*(diff)}% ; background-color: #666666 ; transition: 1s ; `;
+
+                        let defBar = document.querySelector(`.def`);
+                        defBar.style.cssText = `width:${(response.stats[2].base_stat)*(diff)}% ; background-color: #666666 ; transition: 1s;`;
+
+                        let satkBar = document.querySelector(`.satk`);
+                        satkBar.style.cssText = `width :${(response.stats[3].base_stat)*(diff)}% ; background-color: #666666 ; transition: 1s`;
+
+                        let sdefBar = document.querySelector(`.sdef`);
+                        sdefBar.style.cssText = ` width :${(response.stats[4].base_stat)*(diff)}% ; background-color: #666666 ; transition: 1s`;
+                        
+                        let spdBar = document.querySelector(`.spd`);
+                        spdBar.style.cssText = ` width :${(response.stats[5].base_stat)*(diff)}% ; background-color: #666666 ; transition: 1s`;
+
+                        
+                },500)
+                
                 
     })
 
-                fetch (`https://pokeapi.co/api/v2/characteristic/${a.dataset.id}`)
+                fetch (`https://pokeapi.co/api/v2/pokemon-species/${a.dataset.id}`)
                 .then (response => response.json())
                 .then ( function (response){
+                        
                         let desc = document.querySelector(`.text p `)
-                        desc.innerHTML = response.descriptions[0].description
+                        desc.innerHTML = response.flavor_text_entries[8].flavor_text
+
                 })
 
 
