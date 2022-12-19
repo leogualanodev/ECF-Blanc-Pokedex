@@ -208,6 +208,113 @@ function returnInfo (a){
                     colorFire1.style.backgroundColor = "black"
                     
                 }
+
+                // deuxième couleur pour le type 2
+
+                if ( `${response.types[1].type.name}` === `${tab[9]}`){
+                        colorFire2.style.backgroundColor = "#f08030";
+                }
+                    
+                
+
+                else if ( `${response.types[1].type.name}` === `${tab[1]}` ){
+                   
+                        colorFire2.style.backgroundColor = "#c03028"
+                   
+                } 
+                else if (`${response.types[1].type.name}` === `${tab[2]}`){
+                    
+                        colorFire2.style.backgroundColor = "#a890f0"
+                   
+                } 
+                else if (`${response.types[1].type.name}` === `${tab[3]}`){
+                    
+                        colorFire2.style.backgroundColor = "#a040a0"
+                    
+                }
+                else if (`${response.types[1].type.name}` === `${tab[4]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#e0c068"
+                    
+                }
+                else if (`${response.types[1].type.name}` === `${tab[5]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#b8a038"
+                    
+                }
+                else if (`${response.types[1].type.name}` === `${tab[6]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#a8b820"
+                }
+                  
+                
+                else if (`${response.types[1].type.name}` === `${tab[7]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#705898"
+                     
+                }
+                else if (`${response.types[1].type.name}` === `${tab[8]}` ){
+                   
+                        colorFire2.style.backgroundColor = "#b8b8d0"
+                    
+                }
+                else if (`${response.types[1].type.name}` === `${tab[10]}`){
+                   
+                        colorFire2.style.backgroundColor = "#6890f0"
+                   
+                }
+                else if (`${response.types[1].type.name}` === `${tab[11]}`){
+                    
+                        colorFire2.style.backgroundColor = "#78c850"
+                     
+                }
+                else if (`${response.types[1].type.name}` === `${tab[12]}`){
+                    
+                        colorFire2.style.backgroundColor = "#f8d030"
+                   
+                }
+                else if (`${response.types[1].type.name}` === `${tab[13]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#f85888"
+                   
+                }
+                else if (`${response.types[1].type.name}` === `${tab[14]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#98d8d8"
+                   
+                }
+                else if (`${response.types[1].type.name}` === `${tab[15]}`){
+                   
+                        colorFire2.style.backgroundColor = "#7038f8"
+                     
+                }
+                else if (`${response.types[1].type.name}` === `${tab[16]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#705848"
+                   
+                }
+                else if (`${response.types[1].type.name}` === `${tab[17]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#ee99ac"
+                   
+                }
+                else if (`${response.types[1].type.name}` === `${tab[19]}` ){
+                   
+                        colorFire2.style.backgroundColor = "#564c4e"
+                   
+                }
+                else if (`${response.types[1].type.name}` === `${tab[18]}`){
+                    
+                        colorFire2.style.backgroundColor = "#68a090"  
+                }
+                else if (`${response.types[1].type.name}` === `${tab[0]}` ){
+                    
+                        colorFire2.style.backgroundColor = "#a8a878"  
+                }
+                else {
+                    colorFire2.style.backgroundColor = "black"
+                    
+                }
                 
 
 
@@ -246,6 +353,13 @@ function returnInfo (a){
 
                 
     })
+
+                fetch (`https://pokeapi.co/api/v2/characteristic/${a.dataset.id}`)
+                .then (response => response.json())
+                .then ( function (response){
+                        let desc = document.querySelector(`.text p `)
+                        desc.innerHTML = response.descriptions[0].description
+                })
 
 
 }
