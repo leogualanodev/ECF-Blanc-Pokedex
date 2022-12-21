@@ -17,21 +17,19 @@ for ( let i=1; i < 152 ; i++){
     fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
     .then(response => response.json())
     .then(function(response){
-    // console.log(response)
+    console.log(response)
     let article = document.querySelector("article")
     // j'ajoute à chaque boucle du contenue dans mon html, stylisé en css auquel j'attribut un dataset que j'appelle id 
     article.innerHTML += `<button data-id="${i}" class="modal-button modal-trigger" id="pokémon${i}">  
                             <p class="number${i}">#${i}</p>
-                            <div class="image"></div>
+                            <div class="image"> <img src="${response.sprites.other.home.front_default}"> </div>
                             <div class="name">
                                 <p>${response.name}</p>
                             </div>
                          </button>`
     
                         //  j'ajoute également le back-ground image qui est l'image de mon pokémon 
-    let img= document.querySelector(`#pokémon${i}`)
-    
-    img.style.backgroundImage = `url(${response.sprites.front_default})`
+
 
         // je définie un événement au click auquel j'attribut la fonction toggleModal
     let modalContainer= document.querySelector(`.modal-container`);

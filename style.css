@@ -63,6 +63,13 @@ footer{
 
 /* style section pokédex */
 
+.image {
+    width: 100%;
+}
+.image img{
+    width: 80px;
+    
+}
 article{
     padding-top: 70px;
     display: flex;
