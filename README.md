@@ -4,7 +4,7 @@
 
 
 
-### Bienvenue sur mon projet Pokedex, un examen blanc réalisé dans le cadre de ma formation DWWM (Développeur Web et Web Mobile). Ce projet a pour objectif de me permettre de mettre en pratique mes compétences en développement front-end en créant une application web basée sur l'API JavaScript poke.api.
+### Bienvenue sur mon projet Pokedex, un examen blanc réalisé dans le cadre de ma formation DWWM (Développeur Web et Web Mobile). Ce projet a pour objectif de me permettre de mettre en pratique mes compétences en développement front-end en créant une application web basée sur l'API JavaScript pokeapi.
 
 ![](https://giphy.com/embed/xuXzcHMkuwvf2) 
 
